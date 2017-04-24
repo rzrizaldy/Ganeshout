@@ -121,10 +121,10 @@
 
 </div>
 <div class="col-xs-8"><div id="map-canvas" style="width:100%;height:300px" align="center"></div>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAosMsDbWq7fmxmMmHEAh4esEBITjC6VCo&sensor=false"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKbFGlvbtwtQucdIB_l8Vc8OQW5bPxtQs&sensor=false"></script>
 <script type="text/javascript" src="map.js"></script></div>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2qQzprSbNBaE4hsZbZudfMDAR6dMvlDk&callback=initMap">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKbFGlvbtwtQucdIB_l8Vc8OQW5bPxtQs&callback=initMap">
 </script>
 </body>
 </html>

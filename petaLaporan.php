@@ -112,11 +112,11 @@
   <script>
 
     var customLabel = {
-      Kebersihan: {
-        label: 'S'
+      Fasilitas: {
+        label: 'F'
       },
-      Kelistrikan: {
-        label: 'L'
+      Insiden: {
+        label: 'I'
       }
     };
 
@@ -158,28 +158,48 @@
 var infoWindow = new google.maps.InfoWindow;
 
           // Change this depending on the name of your PHP or XML file
-          downloadUrl('parsetoXML.php', function(data) {
+          downloadUrl('laporan.xml', function(data) { //masih test pake xml biasa
             var xml = data.responseXML;
             var markers = xml.documentElement.getElementsByTagName('marker');
             
             Array.prototype.forEach.call(markers, function(markerElem) {
-              var nama = markerElem.getAttribute('nama');
-              var tipe = markerElem.getAttribute('tipe');
+              var id = markerElem.getAttribute('id');
+              var time = markerElem.getAttribute('time');
+              var nim = markerElem.getAttribute('nim');
+              var jenis = markerElem.getAttribute('jenis');
+              var gambar = markerElem.getAttribute('gambar');
+              var keterangan = markerElem.getAttribute('keterangan');
               var point = new google.maps.LatLng(
                 parseFloat(markerElem.getAttribute('lat')),
                 parseFloat(markerElem.getAttribute('lng')));
 
               var infowincontent = document.createElement('div');
               var strong = document.createElement('strong');
-              strong.textContent = nama
+              strong.textContent = "Pelapor: " + nim
               infowincontent.appendChild(strong);
               infowincontent.appendChild(document.createElement('br'));
 
               var text = document.createElement('text');
-              text.textContent = tipe
+              text.textContent = "Kategori: " + jenis
               infowincontent.appendChild(text);
+              infowincontent.appendChild(document.createElement('br'));
+
+              var text = document.createElement('text');
+              text.textContent = "Detail: " + keterangan
+              infowincontent.appendChild(text);
+              infowincontent.appendChild(document.createElement('br'));
+
+              var img = document.createElement('img');
+              img.setContent = "<img src='" + gambar + "'>"
+              infowincontent.appendChild(img);
+              infowincontent.appendChild(document.createElement('br'));
+
+              var text = document.createElement('text');
+              text.textContent = "Waktu: " + time
+              infowincontent.appendChild(text);
+              infowincontent.appendChild(document.createElement('br'));
               
-              var icon = customLabel[tipe] || {};
+              var icon = customLabel[jenis] || {};
               var marker = new google.maps.Marker({
                 map: map,
                 position: point,
@@ -214,7 +234,7 @@ function doNothing() {}
 
 </script>
 <script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAosMsDbWq7fmxmMmHEAh4esEBITjC6VCo&callback=initMap">
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKbFGlvbtwtQucdIB_l8Vc8OQW5bPxtQs&callback=initMap">
 </script>
 </body>
 </html>
