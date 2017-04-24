@@ -11,12 +11,39 @@ function initialize() {
    var mapOptions = {
       center: new google.maps.LatLng(-6.89038, 107.61035),
       zoom: 17,
-      mapTypeId: 'roadmap'
-      styles :
-      [{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#e0efef"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"hue":"#1900ff"},{"color":"#c0e8e8"}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"visibility":"on"},{"lightness":700}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#7dcdcd"}]}]
-   };
+      styles: [{"featureType":"landscape.natural",
+      "elementType":"geometry.fill",
+      "stylers":[{"visibility":"on"},
+      {"color":"#e0efef"}]},
+      {"featureType":"poi",
+      "elementType":"geometry.fill",
+      "stylers":[{"visibility":"on"},
+      {"hue":"#1900ff"},
+      {"color":"#c0e8e8"}]},
+      {"featureType":"road",
+      "elementType":"geometry",
+      "stylers":[{"lightness":100},
+      {"visibility":"simplified"}]},
+      {"featureType":"road",
+      "elementType":"labels",
+      "stylers":[{"visibility":"off"}]},
+      {"featureType":"transit.line",
+      "elementType":"geometry",
+      "stylers":[{"visibility":"off"},
+      {"lightness":700}]},
+      {"featureType":"water",
+      "elementType":"all",
+      "stylers":[{"color":"#7dcdcd"}]},
+      {
+       "featureType": "poi.business",
+       "elementType": "labels",
+       "stylers": [{ "visibility": "off" }]}
+]
+      
 
-   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+ };
+
+ map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
    // This event detects a click on the map.
    google.maps.event.addListener(map, "click", function(event) {
@@ -65,7 +92,7 @@ function createMarker(lat, lng) {
    // This event detects the drag movement of the marker.
    // The event is fired when left button is released.
    google.maps.event.addListener(marker, 'dragend', function() {
-      
+
       // Updates lat and lng position of the marker.
       marker.position = marker.getPosition();
 
