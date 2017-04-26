@@ -56,21 +56,27 @@
       }
 
       .floating-menu {
-        font-family: Poppins;
+        font-family: Roboto;
         color : white;
-        background: teal;
+        background: #99cc00;
         padding: 5px;;
         width: 200px;
         z-index: 100;
         position: fixed;
-        top: 30px;
-        right: 30px;
+        bottom: 50px;
+        left: 30px;
       }
 
     </style>
   </head>
 
   <body>
+
+  <nav class="floating-menu">
+  <h3 align="center">Keterangan</h3>
+  <p align="center">D: Laporan Darurat</p>
+  <p align="center">F: Laporan Fasilitas</p>
+  </nav>
 
     <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
       <div class="container">
@@ -112,11 +118,11 @@
   <script>
 
     var customLabel = {
-      Fasilitas: {
+      fasilitas: {
         label: 'F'
       },
-      Insiden: {
-        label: 'I'
+      darurat: {
+        label: 'D'
       }
     };
 
