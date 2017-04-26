@@ -85,19 +85,19 @@
    </div>
    <!-- item list -->
    <br>
-   <form method="post" action="add2mysql.php" name="addToilet">
+   <form method="POST" action="config.php">
 
     <div class="form-group">
         <label for="UserNIM">NIM</label>
         <input type="text" class="form-control" name="UserNIM">
     </div>
     <div class="form-group">
-        <label for="ToiletName">Jenis laporan</label>
-        <input type="text" class="form-control" name="ToiletName">
+        <label for="JenisLaporan">Jenis laporan</label>
+        <select class="form-control"  name="JenisLaporan">
+                <option value="darurat">Darurat</option>
+                <option value="fasilitas">Fasilitas</option>
+                </select></br>
     </div>
-
-
-
 
     <label>Unggah Gambar</label>
     <div class="input-group">
@@ -112,19 +112,25 @@
 
 
  <div class="form-group">
-    <label for="ToiletDesc">Keterangan</label>
-    <input type="text" class="form-control" name="ToiletDesc">
+    <label for="LaporanDesc">Keterangan</label>
+    <input type="text" class="form-control" name="LaporanDesc">
 </div>
-<button type="submit" class="btn btn-primary">Submit</button>
+	<input type="hidden" name="lat" id="lat" value="0" />
+    <input type="hidden" name="lng" id="lng" value="0" />
+	<div class="col-xs-8"><div id="map-canvas" style="width:100%;height:300px" align="center"></div>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKbFGlvbtwtQucdIB_l8Vc8OQW5bPxtQs&sensor=false"></script>
+	<script type="text/javascript" src="map.js"></script></div>	
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKbFGlvbtwtQucdIB_l8Vc8OQW5bPxtQs&callback=initMap">
+	</script>
+
+	
+<button type="submit" class="btn btn-primary" name="submit">Submit</button>
 </form>
 
 
 </div>
-<div class="col-xs-8"><div id="map-canvas" style="width:100%;height:300px" align="center"></div>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKbFGlvbtwtQucdIB_l8Vc8OQW5bPxtQs&sensor=false"></script>
-<script type="text/javascript" src="map.js"></script></div>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKbFGlvbtwtQucdIB_l8Vc8OQW5bPxtQs&callback=initMap">
-</script>
+
+
 </body>
 </html>

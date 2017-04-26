@@ -1,8 +1,15 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<?php
+    session_start();
+    include "config.php";
+    include "laporan.class.php";
+    include "darurat.class.php";
+    $menu = new Menu($conn);
+    $darurat = new Darurat($conn);
+    $user_info = array();
+  
+?>
+
+
 <html lang="en">
 
 <head>
@@ -79,7 +86,8 @@
 </div>
 </div>
 
-
+<br>
+<h2>Laporan Fasilitas Kampus</h2>
 <br>
 <div class="col-md-6 col-centered panel panel-default">
 
@@ -90,41 +98,58 @@
         <th>#</th>
         <th>NIM</th>
         <th>Jenis Laporan</th>
-        <th>Lokasi</th>
-        <th>Gambar</th>
+        <th>Longtitude</th>
+        <th>Latitude</th>
+        <!--<th>Gambar</th> -->
         <th>Keterangan</th>
       </tr>
     </thead>
     <tbody>
+      <?php while($user_info = mysqli_fetch_array($menu->getmenu())){?>
       <tr>
-        <th scope="row">1</th>
-        <td>18214052</td>
-        <td>Urgent</td>
-        <td>xxxxx</td>
-        <td>yyyy</td>
-        <td>abcdefg</td>
+        <td><?php echo $user_info['ID_Laporan']?></td>
+        <td><?php echo $user_info['NIM']?></td>
+        <td><?php echo $user_info['JenisLaporan']?></td>
+        <td><?php echo $user_info['LokasiLng']?></td>
+        <td><?php echo $user_info['LokasiLat']?></td>
+        <td><?php echo $user_info['Keterangan']?></td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>18214052</td>
-        <td>Urgent</td>
-        <td>xxxxx</td>
-        <td>yyyy</td>
-        <td>abcdefg</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>18214052</td>
-        <td>Urgent</td>
-        <td>xxxxx</td>
-        <td>yyyy</td>
-        <td>abcdefg</td>
-      </tr>
+      <?php } ?> 
     </tbody>
   </table>
 
 </div>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2qQzprSbNBaE4hsZbZudfMDAR6dMvlDk&callback=initMap">
-</script>
+
+<h2>Laporan Darurat</h2>
+<br>
+<div class="col-md-6 col-centered panel panel-default">
+
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>NIM</th>
+        <th>Laporan</th>
+        <th>Lokasi</th>
+        <th>Waktu</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php while($user_info = mysqli_fetch_array($darurat->getDarurat())){?>
+      <tr>
+        <td><?php echo $user_info['ID']?></td>
+        <td><?php echo $user_info['NIM/NIK']?></td>
+        <td><?php echo $user_info['Laporan']?></td>
+        <td><?php echo $user_info['Lokasi']?></td>
+        <td><?php echo $user_info['Waktu']?></td>
+      </tr>
+      <?php } ?> 
+    </tbody>
+  </table>
+
+</div>
+
+
 </body>
 </html>
