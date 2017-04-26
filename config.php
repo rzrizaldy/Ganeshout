@@ -1,5 +1,4 @@
 <?php
-
 $servername = "server424.cloudhost.id";
 $username = "rnateami_atikaryp";
 $password = "sadagori";
@@ -14,12 +13,9 @@ if (!$conn) {
 }
 
 else if ($conn) {
-	echo "Mantap";
+	echo "Connected";
 }
 
-else {
-	echo "what the??";
-}
 
 echo "\n";
 
@@ -30,11 +26,12 @@ echo "\n";
 			$NIM = $_POST['UserNIM'];
 			$jenisLaporan = $_POST['JenisLaporan'];
 			$laporanDesc = $_POST['LaporanDesc'];
-			//$lokasi = $_POST[''];
+			$getLat=$_POST['lat'];
+			$getLng=$_POST['lng'];
 	echo ("Memasukkan ke SQL");
 	echo "\n";
-			$sql = "INSERT INTO laporan (NIM, JenisLaporan, Keterangan)
-			VALUES ('$NIM', '$jenisLaporan', '$laporanDesc')";
+			$sql = "INSERT INTO laporan (NIM, JenisLaporan, Keterangan, LokasiLat, LokasiLng)
+			VALUES ('$NIM', '$jenisLaporan', '$laporanDesc', '$getLat', '$getLng')";
 			if ($conn->query($sql) === TRUE) {
 				echo "New record created successfully";
 				} 

@@ -115,49 +115,21 @@
     <label for="LaporanDesc">Keterangan</label>
     <input type="text" class="form-control" name="LaporanDesc">
 </div>
+	<input type="hidden" name="lat" id="lat" value="0" />
+    <input type="hidden" name="lng" id="lng" value="0" />
+	<div class="col-xs-8"><div id="map-canvas" style="width:100%;height:300px" align="center"></div>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKbFGlvbtwtQucdIB_l8Vc8OQW5bPxtQs&sensor=false"></script>
+	<script type="text/javascript" src="map.js"></script></div>	
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKbFGlvbtwtQucdIB_l8Vc8OQW5bPxtQs&callback=initMap">
+	</script>
+
+	
 <button type="submit" class="btn btn-primary" name="submit">Submit</button>
 </form>
 
 
 </div>
-<div class="col-xs-8"><div id="map-canvas" style="width:100%;height:300px" align="center"></div>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKbFGlvbtwtQucdIB_l8Vc8OQW5bPxtQs&sensor=false"></script>
-<script type="text/javascript" src="map.js"></script></div>
 
-<script>
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 8,
-          center: {lat: -34.397, lng: 150.644}
-        });
-        var geocoder = new google.maps.Geocoder();
-
-        document.getElementById('submit').addEventListener('click', function() {
-          geocodeAddress(geocoder, map);
-        });
-      }
-
-      function geocodeAddress(geocoder, resultsMap) {
-        var address = document.getElementById('address').value;
-        geocoder.geocode({'address': address}, function(results, status) {
-          if (status === 'OK') {
-            resultsMap.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-              map: resultsMap,
-              position: results[0].geometry.location
-            });
-          } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
-        });
-		var lat = marker.getPosition().lat();
-		var lng = marker.getPosition().lng();
-      }
-
-    </script>
-	
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKbFGlvbtwtQucdIB_l8Vc8OQW5bPxtQs&callback=initMap">
-</script>
 
 
 </body>
