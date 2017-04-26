@@ -92,6 +92,7 @@
         <input type="text" class="form-control" name="UserNIM">
     </div>
     <div class="form-group">
+<<<<<<< HEAD
         <label for="JenisLaporan">Jenis laporan</label>
         <select class="form-control"  name="JenisLaporan">
                 <option value="darurat">Darurat</option>
@@ -99,6 +100,15 @@
                 </select></br>
     </div>
 
+=======
+       <label for="JenisLaporan">Jenis laporan</label>
+       <select class="form-control" align = "center" style="width: 420px; border: 3px double #CCCCCC; padding:5px 10px;" name ="JenisLaporan"> 
+				<option value="darurat">Darurat</option>
+				<option value="fasilitas">Fasilitas</option>
+				</select></br>
+    </div>
+	
+>>>>>>> origin/master
     <label>Unggah Gambar</label>
     <div class="input-group">
      <span class="input-group-btn">
