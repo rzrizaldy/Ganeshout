@@ -85,20 +85,20 @@
    </div>
    <!-- item list -->
    <br>
-   <form method="post" action="add2mysql.php" name="addToilet">
+   <form method="POST" action="config.php">
 
     <div class="form-group">
         <label for="UserNIM">NIM</label>
         <input type="text" class="form-control" name="UserNIM">
     </div>
     <div class="form-group">
-        <label for="ToiletName">Jenis laporan</label>
-        <input type="text" class="form-control" name="ToiletName">
+       <label for="JenisLaporan">Jenis laporan</label>
+       <select class="form-control" align = "center" style="width: 420px; border: 3px double #CCCCCC; padding:5px 10px;" name ="JenisLaporan"> 
+				<option value="darurat">Darurat</option>
+				<option value="fasilitas">Fasilitas</option>
+				</select></br>
     </div>
-
-
-
-
+	
     <label>Unggah Gambar</label>
     <div class="input-group">
      <span class="input-group-btn">
@@ -112,10 +112,10 @@
 
 
  <div class="form-group">
-    <label for="ToiletDesc">Keterangan</label>
-    <input type="text" class="form-control" name="ToiletDesc">
+    <label for="LaporanDesc">Keterangan</label>
+    <input type="text" class="form-control" name="LaporanDesc">
 </div>
-<button type="submit" class="btn btn-primary">Submit</button>
+<button type="submit" class="btn btn-primary" name="submit">Submit</button>
 </form>
 
 
@@ -124,7 +124,41 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKbFGlvbtwtQucdIB_l8Vc8OQW5bPxtQs&sensor=false"></script>
 <script type="text/javascript" src="map.js"></script></div>
 
+<script>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: {lat: -34.397, lng: 150.644}
+        });
+        var geocoder = new google.maps.Geocoder();
+
+        document.getElementById('submit').addEventListener('click', function() {
+          geocodeAddress(geocoder, map);
+        });
+      }
+
+      function geocodeAddress(geocoder, resultsMap) {
+        var address = document.getElementById('address').value;
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+		var lat = marker.getPosition().lat();
+		var lng = marker.getPosition().lng();
+      }
+
+    </script>
+	
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKbFGlvbtwtQucdIB_l8Vc8OQW5bPxtQs&callback=initMap">
 </script>
+
+
 </body>
 </html>
