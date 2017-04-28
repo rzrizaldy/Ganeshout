@@ -38,5 +38,7 @@ echo "\n";
 			else {
 				echo "Error: " . $sql . "<br>" . $conn->error;
 			}
+	echo '<script> window.setTimeout("window.close()", 10); </script>';
 		}
+
  ?>

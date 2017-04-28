@@ -56,15 +56,15 @@
       }
 
       .floating-menu {
-        font-family: Roboto;
+        font-family: Poppins;
         color : white;
-        background: #99cc00;
+        background: teal;
         padding: 5px;;
         width: 200px;
         z-index: 100;
         position: fixed;
-        bottom: 30px;
-        left: 30px;
+        top: 30px;
+        right: 30px;
       }
 
     </style>
@@ -101,10 +101,9 @@
     </header><!--/header-->
 
 
-  <nav class="floating-menu">
-  <h3 align="center">Keterangan</h3>
-  <p align="center">F : Laporan Terkait Insiden</p>
-  <p align="center">D : Laporan Darurat</p>
+    <div align="center">
+      <button class="w3-btn w3-hover-sand" onclick="location.href='index.php'">Back to home</button>
+    </div>
   </nav>
   
   <div id="map"></div>
@@ -112,11 +111,11 @@
   <script>
 
     var customLabel = {
-      fasilitas: {
+      Fasilitas: {
         label: 'F'
       },
-      darurat: {
-        label: 'D'
+      Insiden: {
+        label: 'I'
       }
     };
 
@@ -158,20 +157,20 @@
 var infoWindow = new google.maps.InfoWindow;
 
           // Change this depending on the name of your PHP or XML file
-          downloadUrl('parsetoxml.php', function(data) { //masih test pake xml biasa
+          downloadUrl('laporan.xml', function(data) { //masih test pake xml biasa
             var xml = data.responseXML;
             var markers = xml.documentElement.getElementsByTagName('marker');
             
             Array.prototype.forEach.call(markers, function(markerElem) {
-              //var id = markerElem.getAttribute('id');
-              var time = markerElem.getAttribute('Time');
-              var nim = markerElem.getAttribute('NIM');
-              var jenis = markerElem.getAttribute('JenisLaporan');
-              //var gambar = markerElem.getAttribute('gambar');
-              var keterangan = markerElem.getAttribute('Keterangan');
+              var id = markerElem.getAttribute('id');
+              var time = markerElem.getAttribute('time');
+              var nim = markerElem.getAttribute('nim');
+              var jenis = markerElem.getAttribute('jenis');
+              var gambar = markerElem.getAttribute('gambar');
+              var keterangan = markerElem.getAttribute('keterangan');
               var point = new google.maps.LatLng(
-                parseFloat(markerElem.getAttribute('LokasiLat')),
-                parseFloat(markerElem.getAttribute('LokasiLng')));
+                parseFloat(markerElem.getAttribute('lat')),
+                parseFloat(markerElem.getAttribute('lng')));
 
               var infowincontent = document.createElement('div');
               var strong = document.createElement('strong');
@@ -187,6 +186,11 @@ var infoWindow = new google.maps.InfoWindow;
               var text = document.createElement('text');
               text.textContent = "Detail: " + keterangan
               infowincontent.appendChild(text);
+              infowincontent.appendChild(document.createElement('br'));
+
+              var img = document.createElement('img');
+              img.setContent = "<img src='" + gambar + "'>"
+              infowincontent.appendChild(img);
               infowincontent.appendChild(document.createElement('br'));
 
               var text = document.createElement('text');

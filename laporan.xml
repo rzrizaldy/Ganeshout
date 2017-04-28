@@ -1,5 +1,7 @@
 <markers>
-<marker id="1" time="2015-02-25 15:28:57" nim="18214026" jenis="Fasilitas" lat="-6.890562" lng="107.609609" gambar="http://www.acservicecenterinchennai.com/ac-repairs/ac-broken-repair.jpg" keterangan="AC Rusak"/>
-<marker id="2" time="2015-02-25 17:29:01" nim="18214052" jenis="Fasilitas" lat="-6.890903" lng="107.610408" gambar="" keterangan="Lampu Mati"/>
-<marker id="3" time="2015-02-25 16:59:00" nim="18214044" jenis="Insiden" lat="-6.892463" lng="107.609121" gambar="" keterangan="Pohon Ambruk "/>
+<marker id="1" time="2017-02-25 15:28:57" nim="18214032" jenis="Insiden" lat="-6.890608" lng="107.609756" gambar="http://www.acservicecenterinchennai.com/ac-repairs/ac-broken-repair.jpg" keterangan="Kerusuhan Mahasiswa"/>
+<marker id="2" time="2015-02-25 17:29:01" nim="18214011" jenis="Insiden" lat="-6.890608" lng="107.609955" gambar="" keterangan="Listrik Mati"/>
+<marker id="3" time="2015-02-25 16:59:00" nim="18214001" jenis="Insiden" lat="-6.891268" lng="107.610085" gambar="" keterangan="Kebakaran!"/>
+<marker id="4" time="2015-02-25 16:59:00" nim="18214044" jenis="Fasilitas" lat="-6.891300" lng="107.609848" gambar="" keterangan="Kursi Rusak di 7601"/>
+<marker id="5" time="2015-02-25 16:59:00" nim="18214044" jenis="Fasilitas" lat="-6.890475" lng="107.609543" gambar="" keterangan="Kursi Rusak"/>
 </markers>

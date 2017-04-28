@@ -64,7 +64,6 @@
 						</ul>
 					</li>
 					<li><a href="#">About</a></li>
-					<li><a href="#">Login</a></li> 
 				</ul>
 			</div>
 		</div>

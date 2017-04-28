@@ -42,6 +42,7 @@
   <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poppins">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
   
 </head>
 
@@ -69,7 +70,6 @@
           </ul>
         </li>
         <li><a href="#">About</a></li>
-        <li><a href="#">Login</a></li> 
       </ul>
     </div>
   </div>
@@ -96,12 +96,13 @@
     <thead>
       <tr>
         <th>#</th>
-        <th>NIM</th>
+        <th>Pelapor</th>
         <th>Jenis Laporan</th>
         <th>Longtitude</th>
         <th>Latitude</th>
         <!--<th>Gambar</th> -->
         <th>Keterangan</th>
+        <th>Waktu</th>
       </tr>
     </thead>
     <tbody>
@@ -113,6 +114,7 @@
         <td><?php echo $user_info['LokasiLng']?></td>
         <td><?php echo $user_info['LokasiLat']?></td>
         <td><?php echo $user_info['Keterangan']?></td>
+        <td><?php echo $user_info['Time']?></td>
       </tr>
       <?php } ?> 
     </tbody>
@@ -129,7 +131,7 @@
     <thead>
       <tr>
         <th>#</th>
-        <th>NIM</th>
+        <th>Pelapor</th>
         <th>Laporan</th>
         <th>Lokasi</th>
         <th>Waktu</th>

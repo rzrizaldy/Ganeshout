@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-
+   
 
 </head>
 
@@ -62,7 +62,6 @@
                     </ul>
                 </li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Login</a></li> 
             </ul>
         </div>
     </div>
@@ -85,30 +84,19 @@
    </div>
    <!-- item list -->
    <br>
-   <form method="POST" action="config.php">
+   <form method="POST" action="config.php" target="my_iframe">
 
     <div class="form-group">
         <label for="UserNIM">NIM</label>
         <input type="text" class="form-control" name="UserNIM">
     </div>
     <div class="form-group">
-<<<<<<< HEAD
         <label for="JenisLaporan">Jenis laporan</label>
         <select class="form-control"  name="JenisLaporan">
-                <option value="darurat">Darurat</option>
-                <option value="fasilitas">Fasilitas</option>
-                </select></br>
+            <option value="darurat">Darurat</option>
+            <option value="fasilitas">Fasilitas</option>
+        </select></br>
     </div>
-
-=======
-       <label for="JenisLaporan">Jenis laporan</label>
-       <select class="form-control" align = "center" style="width: 420px; border: 3px double #CCCCCC; padding:5px 10px;" name ="JenisLaporan"> 
-				<option value="darurat">Darurat</option>
-				<option value="fasilitas">Fasilitas</option>
-				</select></br>
-    </div>
-	
->>>>>>> origin/master
     <label>Unggah Gambar</label>
     <div class="input-group">
      <span class="input-group-btn">
@@ -125,20 +113,22 @@
     <label for="LaporanDesc">Keterangan</label>
     <input type="text" class="form-control" name="LaporanDesc">
 </div>
-	<input type="hidden" name="lat" id="lat" value="0" />
-    <input type="hidden" name="lng" id="lng" value="0" />
-	<div class="col-xs-8"><div id="map-canvas" style="width:100%;height:300px" align="center"></div>
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKbFGlvbtwtQucdIB_l8Vc8OQW5bPxtQs&sensor=false"></script>
-	<script type="text/javascript" src="map.js"></script></div>	
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKbFGlvbtwtQucdIB_l8Vc8OQW5bPxtQs&callback=initMap">
-	</script>
 
-	
-<button type="submit" class="btn btn-primary" name="submit">Submit</button>
+<input type="hidden" name="lat" id="lat" value="0" />
+<input type="hidden" name="lng" id="lng" value="0" />
+<div class="col-xs-8"><div id="map-canvas" style="width:100%;height:300px" align="center"></div>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKbFGlvbtwtQucdIB_l8Vc8OQW5bPxtQs&sensor=false"></script>
+<script type="text/javascript" src="map.js"></script></div> 
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKbFGlvbtwtQucdIB_l8Vc8OQW5bPxtQs&callback=initMap">
+</script>
+
+<button type="submit" class="btn btn-info btn-block" name="submit" onClick="window.location.reload()">Submit</button>
 </form>
 
 
+
 </div>
+
 
 
 
