@@ -39,6 +39,7 @@ while ($row = $result->fetch_assoc()){
 	$newnode->setAttribute("LokasiLat", $row['LokasiLat']);
 	$newnode->setAttribute("Keterangan", $row['Keterangan']);
 	$newnode->setAttribute("Time", $row['Time']);
+	$newnode->setAttribute("Gambar", $row['Gambar']);
 }
 
 echo $doc->saveXML();

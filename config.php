@@ -25,13 +25,14 @@ echo "\n";
 		if (isset($_POST['submit'])){
 			$NIM = $_POST['UserNIM'];
 			$jenisLaporan = $_POST['JenisLaporan'];
+			$gambar = $_POST['gambar'];
 			$laporanDesc = $_POST['LaporanDesc'];
 			$getLat=$_POST['lat'];
 			$getLng=$_POST['lng'];
 	echo ("Memasukkan ke SQL");
 	echo "\n";
-			$sql = "INSERT INTO laporan (NIM, JenisLaporan, Keterangan, LokasiLat, LokasiLng)
-			VALUES ('$NIM', '$jenisLaporan', '$laporanDesc', '$getLat', '$getLng')";
+			$sql = "INSERT INTO laporan (NIM, JenisLaporan, Gambar, Keterangan, LokasiLat, LokasiLng)
+			VALUES ('$NIM', '$jenisLaporan', '$gambar', '$laporanDesc', '$getLat', '$getLng')";
 			if ($conn->query($sql) === TRUE) {
 				echo "New record created successfully";
 				} 

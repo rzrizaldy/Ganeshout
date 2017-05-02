@@ -42,7 +42,10 @@
   <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poppins">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-
+  <style>
+  a img { display:none; }
+  a:hover img { display:block; }
+  </style>
   
 </head>
 
@@ -95,26 +98,25 @@
   <table class="table">
     <thead>
       <tr>
-        <th>#</th>
+        <!--<th>#</th>-->
+        <th>Waktu</th>
         <th>Pelapor</th>
         <th>Jenis Laporan</th>
-        <th>Longtitude</th>
-        <th>Latitude</th>
-        <!--<th>Gambar</th> -->
+        <th>Lokasi</th>
         <th>Keterangan</th>
-        <th>Waktu</th>
+        <th>Gambar</th>
       </tr>
     </thead>
     <tbody>
       <?php while($user_info = mysqli_fetch_array($menu->getmenu())){?>
       <tr>
-        <td><?php echo $user_info['ID_Laporan']?></td>
+        <!--<td><?php echo $user_info['ID_Laporan']?></td>-->
+        <td><?php echo $user_info['Time']?></td>
         <td><?php echo $user_info['NIM']?></td>
         <td><?php echo $user_info['JenisLaporan']?></td>
-        <td><?php echo $user_info['LokasiLng']?></td>
-        <td><?php echo $user_info['LokasiLat']?></td>
+        <td><a href="petaLaporan.php" target="_blank"> Lat: <?php echo $user_info['LokasiLat']?>, Long: <?php echo $user_info['LokasiLng']?></td>
         <td><?php echo $user_info['Keterangan']?></td>
-        <td><?php echo $user_info['Time']?></td>
+        <td><a href="#"><?php echo $user_info['Gambar']?><img src="<?php echo $user_info['Gambar']?>"width="200"></td>
       </tr>
       <?php } ?> 
     </tbody>
@@ -130,21 +132,19 @@
   <table class="table">
     <thead>
       <tr>
-        <th>#</th>
+        <th>Waktu</th>
         <th>Pelapor</th>
         <th>Laporan</th>
         <th>Lokasi</th>
-        <th>Waktu</th>
       </tr>
     </thead>
     <tbody>
       <?php while($user_info = mysqli_fetch_array($darurat->getDarurat())){?>
       <tr>
-        <td><?php echo $user_info['ID']?></td>
+        <td><?php echo $user_info['Waktu']?></td>
         <td><?php echo $user_info['NIM/NIK']?></td>
         <td><?php echo $user_info['Laporan']?></td>
-        <td><?php echo $user_info['Lokasi']?></td>
-        <td><?php echo $user_info['Waktu']?></td>
+        <td><a href="petaLaporan.php" target="_blank"><?php echo $user_info['Lokasi']?></td>
       </tr>
       <?php } ?> 
     </tbody>

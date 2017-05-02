@@ -101,60 +101,60 @@
     </header><!--/header-->
 
 
-  <nav class="floating-menu">
-  <h3 align="center">Keterangan</h3>
-  <p align="center">F : Laporan Terkait Insiden</p>
-  <p align="center">D : Laporan Darurat</p>
-  </nav>
-  
-  <div id="map"></div>
+    <nav class="floating-menu">
+      <h3 align="center">Keterangan</h3>
+      <p align="center">F : Laporan Terkait Fasilitas</p>
+      <p align="center">D : Laporan Darurat</p>
+    </nav>
 
-  <script>
+    <div id="map"></div>
 
-    var customLabel = {
-      fasilitas: {
-        label: 'F'
-      },
-      darurat: {
-        label: 'D'
-      }
-    };
+    <script>
 
-    function initMap() {
-      var map = new google.maps.Map(document.getElementById('map'), 
-      {
-        center: new google.maps.LatLng(-6.89148, 107.61065),
-        zoom: 17,
-        styles: [{"featureType":"landscape.natural",
-        "elementType":"geometry.fill",
-        "stylers":[{"visibility":"on"},
-        {"color":"#e0efef"}]},
-        {"featureType":"poi",
-        "elementType":"geometry.fill",
-        "stylers":[{"visibility":"on"},
-        {"hue":"#1900ff"},
-        {"color":"#c0e8e8"}]},
-        {"featureType":"road",
-        "elementType":"geometry",
-        "stylers":[{"lightness":100},
-        {"visibility":"simplified"}]},
-        {"featureType":"road",
-        "elementType":"labels",
-        "stylers":[{"visibility":"off"}]},
-        {"featureType":"transit.line",
-        "elementType":"geometry",
-        "stylers":[{"visibility":"off"},
-        {"lightness":700}]},
-        {"featureType":"water",
-        "elementType":"all",
-        "stylers":[{"color":"#7dcdcd"}]},
+      var customLabel = {
+        fasilitas: {
+          label: 'F'
+        },
+        darurat: {
+          label: 'D'
+        }
+      };
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), 
         {
-         "featureType": "poi.business",
-         "elementType": "labels",
-         "stylers": [{ "visibility": "off" }]}
-         ]
+          center: new google.maps.LatLng(-6.89148, 107.61065),
+          zoom: 17,
+          styles: [{"featureType":"landscape.natural",
+          "elementType":"geometry.fill",
+          "stylers":[{"visibility":"on"},
+          {"color":"#e0efef"}]},
+          {"featureType":"poi",
+          "elementType":"geometry.fill",
+          "stylers":[{"visibility":"on"},
+          {"hue":"#1900ff"},
+          {"color":"#c0e8e8"}]},
+          {"featureType":"road",
+          "elementType":"geometry",
+          "stylers":[{"lightness":100},
+          {"visibility":"simplified"}]},
+          {"featureType":"road",
+          "elementType":"labels",
+          "stylers":[{"visibility":"off"}]},
+          {"featureType":"transit.line",
+          "elementType":"geometry",
+          "stylers":[{"visibility":"off"},
+          {"lightness":700}]},
+          {"featureType":"water",
+          "elementType":"all",
+          "stylers":[{"color":"#7dcdcd"}]},
+          {
+           "featureType": "poi.business",
+           "elementType": "labels",
+           "stylers": [{ "visibility": "off" }]}
+           ]
 
-       });
+         });
 var infoWindow = new google.maps.InfoWindow;
 
           // Change this depending on the name of your PHP or XML file
@@ -167,8 +167,8 @@ var infoWindow = new google.maps.InfoWindow;
               var time = markerElem.getAttribute('Time');
               var nim = markerElem.getAttribute('NIM');
               var jenis = markerElem.getAttribute('JenisLaporan');
-              //var gambar = markerElem.getAttribute('gambar');
               var keterangan = markerElem.getAttribute('Keterangan');
+              var gambar = markerElem.getAttribute('Gambar');
               var point = new google.maps.LatLng(
                 parseFloat(markerElem.getAttribute('LokasiLat')),
                 parseFloat(markerElem.getAttribute('LokasiLng')));
@@ -193,6 +193,11 @@ var infoWindow = new google.maps.InfoWindow;
               text.textContent = "Waktu: " + time
               infowincontent.appendChild(text);
               infowincontent.appendChild(document.createElement('br'));
+
+              var elem = document.createElement("img");
+              elem.setAttribute("src", gambar);
+              elem.setAttribute("width", "150px");
+              infowincontent.appendChild(elem)
               
               var icon = customLabel[jenis] || {};
               var marker = new google.maps.Marker({

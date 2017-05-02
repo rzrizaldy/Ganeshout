@@ -100,11 +100,11 @@
     <label>Unggah Gambar</label>
     <div class="input-group">
      <span class="input-group-btn">
-         <span class="btn btn-default btn-file">
-             Browse… <input type="file" id="imgInp">
+         <span class="btn btn-default btn-file" onclick=" window.open('https://spiky.io/','anotherpage1', 'width=400, height=400, left=24, top=24, resizable')">
+            Unggah.. <input type="file" id="imgInp">
          </span>
      </span>
-     <input type="text" class="form-control" readonly>
+     <input type="text" class="form-control" name="gambar" placeholder="Salin Direct Link">
  </div>
  <img id='img-upload'/>
 

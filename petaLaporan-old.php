@@ -66,6 +66,15 @@
         top: 30px;
         right: 30px;
       }
+      #map-canvas {
+        margin: 0;
+        padding: 0;
+        height: 400px;
+        max-width: none;
+      }
+      #map-canvas img {
+        max-width: none !important;
+      }
 
     </style>
   </head>
@@ -172,7 +181,7 @@ var infoWindow = new google.maps.InfoWindow;
                 parseFloat(markerElem.getAttribute('lat')),
                 parseFloat(markerElem.getAttribute('lng')));
 
-              var infowincontent = document.createElement('div');
+              var infowincontent = document.createElement('html');
               var strong = document.createElement('strong');
               strong.textContent = "Pelapor: " + nim
               infowincontent.appendChild(strong);
@@ -183,15 +192,16 @@ var infoWindow = new google.maps.InfoWindow;
               infowincontent.appendChild(text);
               infowincontent.appendChild(document.createElement('br'));
 
+              var html = document.createElement('html');
+              html.textContent = "<img src='http://www.acservicecenterinchennai.com/ac-repairs/ac-broken-repair.jpg'>"
+              infowincontent.appendChild(html);
+              infowincontent.appendChild(document.createElement('br'));
+
               var text = document.createElement('text');
               text.textContent = "Detail: " + keterangan
               infowincontent.appendChild(text);
               infowincontent.appendChild(document.createElement('br'));
 
-              var img = document.createElement('img');
-              img.setContent = "<img src='" + gambar + "'>"
-              infowincontent.appendChild(img);
-              infowincontent.appendChild(document.createElement('br'));
 
               var text = document.createElement('text');
               text.textContent = "Waktu: " + time
