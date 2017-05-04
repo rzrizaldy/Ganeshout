@@ -56,13 +56,8 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li class="active"><a href="index.php">Home</a></li>
 					<li><a href="lapor.php">Lapor</a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Daftar Laporan <i class="icon-angle-down"></i></a>
-						<ul class="dropdown-menu">
-							<li><a href="daftarLaporan.php">Tabel Daftar Laporan</a></li>
-							<li><a href="petaLaporan.php">Peta Daftar Laporan</a></li>
-						</ul>
-					</li>
+					<li><a href="daftarLaporan.php">Tabel Laporan</a></li>
+					<li><a href="petaLaporan.php">Peta Laporan</a></li>
 					<li><a href="#">About</a></li>
 				</ul>
 			</div>
