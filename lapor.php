@@ -40,27 +40,27 @@
 
 <body>
   <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.php"><img src="img/logo.png" alt="Basica"></a>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.php">Home</a></li>
-                    <li class="active"><a href="lapor.php">Lapor</a></li>
-                    <li><a href="daftarLaporan.php">Tabel Laporan</a></li>
-                    <li><a href="petaLaporan.php">Peta Laporan</a></li>
-                    <li><a href="#">About</a></li>
-                </ul>
-            </div>
-        </div>
-    </header><!--/header-->
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.php"><img src="img/logo.png" alt="Basica"></a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.php">Home</a></li>
+          <li class="active"><a href="lapor.php">Lapor</a></li>
+          <li><a href="daftarLaporan.php">Tabel Laporan</a></li>
+          <li><a href="petaLaporan.php">Peta Laporan</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header><!--/header-->
 
 <!-- Page Title -->
 
@@ -95,11 +95,11 @@
     <label>Unggah Gambar</label>
     <div class="input-group">
      <span class="input-group-btn">
-         <span class="btn btn-default btn-file">
-             Browse… <input type="file" id="imgInp">
+         <span class="btn btn-default btn-file" onclick=" window.open('https://spiky.io/','anotherpage1', 'width=400, height=400, left=24, top=24, resizable')">
+            Unggah.. <input type="file" id="imgInp">
          </span>
      </span>
-     <input type="text" class="form-control" readonly>
+     <input type="text" class="form-control" name="gambar" placeholder="Salin Direct Link">
  </div>
  <img id='img-upload'/>
 
@@ -120,7 +120,12 @@
 <button type="submit" class="btn btn-info btn-block" name="submit" onClick="window.location.reload()">Submit</button>
 </form>
 
+
+
 </div>
+
+
+
 
 </body>
 </html>
