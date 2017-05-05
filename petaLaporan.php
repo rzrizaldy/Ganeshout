@@ -98,20 +98,29 @@
 
     <nav class="floating-menu">
       <h3 align="center">Keterangan</h3>
-      <p align="center">F : Laporan Terkait Fasilitas</p>
-      <p align="center">D : Laporan Darurat</p>
+      <p align="center"><img src='https://www.12book.com.bn/favicon.ico'> |  Laporan Fasilitas</p>
+      <p align="center"><img src='http://ablsurpass.mccsc.edu/Surpass/SafariResources/images/icons/icon-inactivity.png'> |  Laporan Darurat</p>
     </nav>
 
     <div id="map"></div>
 
     <script>
 
-      var customLabel = {
+      /*var customLabel = {
         fasilitas: {
           label: 'F'
         },
         darurat: {
           label: 'D'
+        }
+      };*/
+
+      var customIcon = {
+        fasilitas: {
+           icon: 'https://www.12book.com.bn/favicon.ico'
+        },
+        darurat: {
+          icon: 'http://ablsurpass.mccsc.edu/Surpass/SafariResources/images/icons/icon-inactivity.png'
         }
       };
 
@@ -194,11 +203,13 @@ var infoWindow = new google.maps.InfoWindow;
               elem.setAttribute("width", "150px");
               infowincontent.appendChild(elem)
               
-              var icon = customLabel[jenis] || {};
+              //var icon = customLabel[jenis] || {};
+              var bentuk = customIcon[jenis] || {};
               var marker = new google.maps.Marker({
                 map: map,
                 position: point,
-                label: icon.label
+                //label: icon.label,
+                icon: bentuk.icon
               });
               
               marker.addListener('click', function() {

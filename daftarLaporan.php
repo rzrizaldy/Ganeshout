@@ -74,19 +74,54 @@
 </header><!--/header-->
 
 <!-- Page Title -->
+<div class="col-md-6 col-centered panel panel-default">
 <div class="section section-breadcrumbs">
  <div class="container">
   <div class="row">
    <div class="col-md-12">
-    <h1>Lapor! </h1>
+    <center><h1>Laporan dari Embedded System</h1><center>
   </div>
 </div>
 </div>
 </div>
 
-<br>
-<h2>Laporan Fasilitas Kampus</h2>
-<br>
+
+ <div class="container">
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Waktu</th>
+        <th>Pelapor</th>
+        <th>Laporan</th>
+        <th>Lokasi</th>
+        <th>Koordinat</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php while($user_info = mysqli_fetch_array($darurat->getDarurat())){?>
+      <tr>
+        <td><?php echo $user_info['Waktu']?></td>
+        <td><?php echo $user_info['NIM/NIK']?></td>
+        <td><?php echo $user_info['Laporan']?></td>
+        <td><a href="petaLaporan.php" target="_blank"><?php echo $user_info['Lokasi']?></td>
+        <td><a href="petaLaporan.php" target="_blank"> Lat: <?php echo $user_info['Lat']?>, Long: <?php echo $user_info['Lng']?></td>
+      </tr>
+      <?php } ?> 
+    </tbody>
+  </table>
+
+</div>
+
+<div class="section section-breadcrumbs">
+ <div class="container">
+  <div class="row">
+   <div class="col-md-12">
+    <center><h1>Laporan dari Aplikasi</h1><center>
+  </div>
+</div>
+</div>
+</div>
 <div class="col-md-6 col-centered panel panel-default">
 
   <br>
@@ -118,34 +153,9 @@
   </table>
 
 </div>
-
-<h2>Laporan Darurat</h2>
-<br>
-<div class="col-md-6 col-centered panel panel-default">
-
-  <br>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Waktu</th>
-        <th>Pelapor</th>
-        <th>Laporan</th>
-        <th>Lokasi</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php while($user_info = mysqli_fetch_array($darurat->getDarurat())){?>
-      <tr>
-        <td><?php echo $user_info['Waktu']?></td>
-        <td><?php echo $user_info['NIM/NIK']?></td>
-        <td><?php echo $user_info['Laporan']?></td>
-        <td><a href="petaLaporan.php" target="_blank"><?php echo $user_info['Lokasi']?></td>
-      </tr>
-      <?php } ?> 
-    </tbody>
-  </table>
-
 </div>
+
+
 
 
 </body>
